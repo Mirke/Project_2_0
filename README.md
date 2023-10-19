@@ -17,4 +17,5 @@ Have to run so all micro-services so they have their own database
 CREATE DATABASE media_service;
 CREATE DATABASE rating_service;
 CREATE DATABASE genre_service;
+CREATE DATABASE album_service;
 ```
