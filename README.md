@@ -12,7 +12,7 @@ spring.sql.init.mode=always
 spring.jpa.hibernate.ddl-auto=create-drop  
 ```
 ## Commands for creating the MySQL databases for micro-services
-Have to run so all micro-services have own database  
+Have to run so all micro-services so they have their own database  
 ```
 CREATE DATABASE media_service;
 CREATE DATABASE rating_service;
