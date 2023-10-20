@@ -18,4 +18,6 @@ public class GenreService implements GenreServiceInterface {
     public List<Genre> getAllGenres() {
         return genreRepository.findAll();
     }
+
+    public Genre getGenreById(int id){return genreRepository.findById(id).orElseThrow();}
 }

@@ -3,10 +3,14 @@ package com.mirke.mediamicroservice.controllers;
 
 import com.mirke.mediamicroservice.models.*;
 import com.mirke.mediamicroservice.services.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -19,9 +23,14 @@ public class CustomerController {
 
     public CustomerController() {}
 
-    @GetMapping("/getAllMediaOnServer")
+    @GetMapping
     public List<Song> getAllMediaOnServer(){
         return mediaService.findAllMedia();
+    }
+
+    @GetMapping("/{id}")
+    public Map<String, Object> getSpecificSongById(@PathVariable int id){
+        return mediaService.getSongById(id);
     }
 //
 //    @GetMapping("/sortMediaByGenreId")
