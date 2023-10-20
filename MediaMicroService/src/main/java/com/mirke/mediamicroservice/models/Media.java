@@ -12,6 +12,8 @@ public abstract class Media {
     @Column(name = "media_name")
     private String name;
 
+    @Column(name = "fk_genre")
+    private int fk_genre;
 
     public Media() {
     }
@@ -30,5 +32,22 @@ public abstract class Media {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getFk_genre() {
+        return fk_genre;
+    }
+
+    public void setFk_genre(int fk_genre) {
+        this.fk_genre = fk_genre;
+    }
+
+    @Override
+    public String toString() {
+        return "Media{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", fk_genre=" + fk_genre +
+                '}';
     }
 }

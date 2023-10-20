@@ -22,4 +22,9 @@ public class CustomerController {
         return genreService.getAllGenres();
     }
 
+    @GetMapping("/{id}")
+    public Genre getGenreById(@PathVariable int id){
+        return genreService.getGenreById(id);
+    }
+
 }
