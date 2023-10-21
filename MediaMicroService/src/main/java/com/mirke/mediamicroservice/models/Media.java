@@ -15,6 +15,10 @@ public abstract class Media {
     @Column(name = "fk_genre")
     private int fk_genre;
 
+    @ManyToOne
+    @JoinColumn(name = "media_type_id")
+    private MediaType mediaType;
+
     public Media() {
     }
 
@@ -42,12 +46,21 @@ public abstract class Media {
         this.fk_genre = fk_genre;
     }
 
+    public MediaType getMediaType() {
+        return mediaType;
+    }
+
+    public void setMediaType(MediaType mediaType) {
+        this.mediaType = mediaType;
+    }
+
     @Override
     public String toString() {
         return "Media{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", fk_genre=" + fk_genre +
+                ", mediaType=" + mediaType +
                 '}';
     }
 }

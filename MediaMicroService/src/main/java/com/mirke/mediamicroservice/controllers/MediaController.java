@@ -2,30 +2,32 @@ package com.mirke.mediamicroservice.controllers;
 
 
 import com.mirke.mediamicroservice.models.*;
+import com.mirke.mediamicroservice.repo.PodcastRepository;
+import com.mirke.mediamicroservice.repo.SongRepository;
+import com.mirke.mediamicroservice.repo.VideoRepository;
 import com.mirke.mediamicroservice.services.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/api/edufy/media")
-public class CustomerController {
+public class MediaController {
 
     @Autowired
     private MediaService mediaService;
 
-    public CustomerController() {}
+
+    public MediaController() {}
 
     @GetMapping
-    public List<Song> getAllMediaOnServer(){
-        return mediaService.findAllMedia();
+    public List<Object> getAllMediaOnServer(){
+         return mediaService.findAllMedia();
     }
 
     @GetMapping("/{id}")
