@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/artist-service")
+@RequestMapping("/api/edufy/artists")
 public class ArtistController {
 
     @Autowired
