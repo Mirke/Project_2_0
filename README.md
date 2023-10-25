@@ -20,4 +20,5 @@ CREATE DATABASE genre_service;
 CREATE DATABASE album_service;
 CREATE DATABASE artist_service;
 CREATE DATABASE podcast_service;
+CREATE DATABASE video_creator_service;
 ```
