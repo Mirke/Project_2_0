@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/videocreators/api/edufy")
+@RequestMapping("api/edufy/videocreators")
 public class VideoCreatorController {
 
     @Autowired
