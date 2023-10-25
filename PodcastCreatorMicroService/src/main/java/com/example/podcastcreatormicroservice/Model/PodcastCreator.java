@@ -3,7 +3,7 @@ package com.example.podcastcreatormicroservice.Model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "podcastcreator")
+@Table(name = "podcast_creator")
 public class PodcastCreator {
 
     @Id
@@ -11,7 +11,7 @@ public class PodcastCreator {
     @Column(name = "id", nullable = false)
     private int id;
 
-    @Column(name = "podcastcreator_name")
+    @Column(name = "podcast_creatorname")
     private String name;
 
     public int getId() {
