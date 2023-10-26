@@ -4,6 +4,7 @@ import com.lad666.albummicroservice.Model.Album;
 import com.lad666.albummicroservice.Repository.AlbumRepository;
 import com.lad666.albummicroservice.RpcClient;
 import jakarta.websocket.SendResult;
+import org.json.JSONArray;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageBuilder;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 @Service
 public class AlbumService implements AlbumServiceInterface {
@@ -30,14 +32,12 @@ public class AlbumService implements AlbumServiceInterface {
     private DirectExchange exchange;
 
 
-    @Override
-    public List<Album> getAllAlbums() {
+    public CompletableFuture<Object> getAllAlbums() throws ExecutionException, InterruptedException {
         RpcClient r = new RpcClient(template, exchange);
         List<Album> list = albumRepository.findAll();
-        r.send(list);
-        return albumRepository.findAll();
-    }
 
+        return r.send(list);
+    }
 
 
     /*@Override

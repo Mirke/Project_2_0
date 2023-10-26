@@ -1,22 +1,24 @@
-package com.mirke.messagebroker;
+package com.lad666.artistservice;
 
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lad666.artistservice.Model.Artist;
+import com.lad666.artistservice.Repository.ArtistRepository;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.json.JSONArray;
 import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
 @Component
 public class RpcServer {
 
     private final RabbitTemplate template;
+
+    @Autowired
+    private ArtistRepository artistRepository;
 
     public RpcServer(RabbitTemplate template) {
         this.template = template;
@@ -25,7 +27,7 @@ public class RpcServer {
 
 
     @RabbitListener(queues = "tut.rpc.requests")
-    public Object handleRequest(String message) throws JSONException, ExecutionException, InterruptedException {
+    public String handleRequest(String message) throws JSONException {
         System.out.println("Received request: " + message);
         // Perform some processing here...
 
@@ -36,11 +38,9 @@ public class RpcServer {
 //             message = message.replace("\"alive\":\"true\"","\"alive\":\"false\"");
 //            System.out.println(res);
 //        }
+        List<Artist> list = artistRepository.findAll();
+        JSONArray jsonArray = new JSONArray(list);
 
-        var result = CompletableFuture.supplyAsync(() -> template.convertSendAndReceive
-                ("artist", "artist")).thenApply(res -> res);
-        System.out.println(result.get());
-
-        return result.get();
+        return message + ","+ jsonArray.toString();
     }
 }

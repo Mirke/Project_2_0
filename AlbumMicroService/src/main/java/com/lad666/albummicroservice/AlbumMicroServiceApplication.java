@@ -17,6 +17,7 @@ public class AlbumMicroServiceApplication {
         return new DirectExchange("tut.rpc");
     }
 
+
     public static void main(String[] args) {
         SpringApplication.run(AlbumMicroServiceApplication.class, args);
     }

@@ -1,4 +1,4 @@
-package com.mirke.messagebroker;
+package com.lad666.artistservice;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
@@ -39,7 +39,7 @@ public class RabbitConfiguration {
                            Queue queue) {
         return BindingBuilder.bind(queue)
                 .to(exchange)
-                .with("broker");
+                .with("artist");
     }
 
     @Bean

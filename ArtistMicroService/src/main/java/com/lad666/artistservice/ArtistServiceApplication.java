@@ -16,39 +16,7 @@ import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 @SpringBootApplication
 public class ArtistServiceApplication {
 
-    static final String topicExchangeName = "artist-exchange";
 
-    static final String queueName = "artist-broker";
-
-    @Bean
-    Queue queue() {
-        return new Queue(queueName, false);
-    }
-
-    @Bean
-    TopicExchange exchange() {
-        return new TopicExchange(topicExchangeName);
-    }
-
-    @Bean
-    Binding binding(Queue queue, TopicExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with("receiving.microservice.artist");
-    }
-
-    @Bean
-    SimpleMessageListenerContainer container(ConnectionFactory connectionFactory,
-                                             MessageListenerAdapter listenerAdapter) {
-        SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
-        container.setConnectionFactory(connectionFactory);
-        container.setQueueNames(queueName);
-        container.setMessageListener(listenerAdapter);
-        return container;
-    }
-
-    @Bean
-    MessageListenerAdapter listenerAdapter(Receiver receiver) {
-        return new MessageListenerAdapter(receiver, "receiveMessage");
-    }
 
     public static void main(String[] args) {
         SpringApplication.run(ArtistServiceApplication.class, args);
