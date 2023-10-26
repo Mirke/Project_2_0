@@ -2,6 +2,8 @@ package com.lad666.albummicroservice.Model;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 /**
  * Author: Lada Egolaeva
  * Description: The Album entity class contains the annotated properties, constructors and methods needed
@@ -10,7 +12,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "album")
-public class Album {
+public class Album implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

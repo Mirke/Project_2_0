@@ -2,19 +2,21 @@ package com.lad666.albummicroservice.Controller;
 
 import com.lad666.albummicroservice.Model.Album;
 import com.lad666.albummicroservice.Service.AlbumService;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/album/api/edufy")
+@RequestMapping("/api/edufy/album")
 public class AlbumController {
+
     @Autowired
     private AlbumService albumService;
+
 
     // Methods:
     @GetMapping("/allalbums")
