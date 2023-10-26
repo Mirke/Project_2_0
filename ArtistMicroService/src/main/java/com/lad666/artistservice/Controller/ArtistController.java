@@ -21,7 +21,7 @@ public class ArtistController {
     @Autowired
     private ArtistService artistService;
 
-    @GetMapping("/getallartists")
+        @GetMapping("/getallartists")
     public List<Artist> getAllArtists(){
         return artistService.getAllArtists();
     }
