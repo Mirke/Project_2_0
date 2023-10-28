@@ -9,9 +9,9 @@ VALUES
 
 INSERT INTO authorities (username, authority)
 VALUES
-    ('Andreas', 'USER'),
-    ('Moses Quake', 'ADMIN'),
-    ('Mikael', 'USER'),
-    ('Alfred', 'ADMIN'),
-    ('Lada', 'USER')
+    ('Andreas', 'ROLE_USER'),
+    ('Moses Quake', 'ROLE_ADMIN'),
+    ('Mikael', 'ROLE_USER'),
+    ('Alfred', 'ROLE_USER'),
+    ('Lada', 'ROLE_USER')
 ;

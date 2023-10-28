@@ -17,7 +17,7 @@ public class CustomerController {
 
     public CustomerController() { }
 
-    @GetMapping
+    @GetMapping("/")
     public List<Genre> getAllGenres(){
         return genreService.getAllGenres();
     }

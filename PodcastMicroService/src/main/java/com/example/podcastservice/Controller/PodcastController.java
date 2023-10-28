@@ -19,7 +19,7 @@ public class PodcastController {
     private PodcastService podcastService;
 
 
-    @GetMapping
+    @GetMapping("/")
     public List <Podcast> getAllPodcasts() {return podcastService.getAllPodcasts(); }
 
     @GetMapping("/{id}")

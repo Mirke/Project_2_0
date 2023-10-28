@@ -23,7 +23,7 @@ public class CustomerController {
 
     public CustomerController() {}
 
-    @GetMapping
+    @GetMapping("/")
     public List<Song> getAllMediaOnServer(){
         return mediaService.findAllMedia();
     }

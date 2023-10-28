@@ -17,7 +17,7 @@ public class PodcastCreatorController {
     @Autowired
     private PodcastCreatorService podcastCreatorService;
 
-    @GetMapping
+    @GetMapping("/")
     public List<PodcastCreator> getAllPodcastCreators() {return podcastCreatorService.getAllPodcastCreators(); }
 
     @GetMapping("/{id}")

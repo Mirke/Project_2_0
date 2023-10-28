@@ -27,7 +27,6 @@ public class MediaService implements MediaServiceInterface {
 
     @Override
     public List<Song> findAllMedia() {
-
         // First part
         Mono<Object[]> response = client.get()
                 .accept(MediaType.APPLICATION_JSON)
