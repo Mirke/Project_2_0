@@ -1,7 +1,7 @@
 INSERT INTO users (username, password, enabled)
 VALUES
     ('Andreas', '{noop}asd', true),
-    ('Moses Quake', '{noop}asd', true),
+    ('MosesZal', '{noop}asd', true),
     ('Mikael', '{noop}asd', true),
     ('Alfred', '{noop}asd', true),
     ('Lada', '{noop}asd', true)
@@ -9,8 +9,8 @@ VALUES
 
 INSERT INTO authorities (username, authority)
 VALUES
+    ('MosesZal', 'ROLE_ADMIN'),
     ('Andreas', 'ROLE_USER'),
-    ('Moses Quake', 'ROLE_ADMIN'),
     ('Mikael', 'ROLE_USER'),
     ('Alfred', 'ROLE_USER'),
     ('Lada', 'ROLE_USER')

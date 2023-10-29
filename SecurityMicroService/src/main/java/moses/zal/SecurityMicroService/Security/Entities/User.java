@@ -1,4 +1,4 @@
-package com.mirke.genremicroservice.Security.Entities;
+package moses.zal.SecurityMicroService.Security.Entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
